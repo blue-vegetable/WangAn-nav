@@ -11,7 +11,8 @@ def add_website(dic, type, id, name, url):
             {'type': type, 'id': id, 'sites': [{'name': name, 'Url': url}]})
 
 
-with open("./config/config_websites.json", "r") as f:
+with open("./config/config_websites.json", "r", encoding='utf-8') as f:
     dic = json.load(f)
     add_website(dic, '武大2', 'WHU2', '瞎写的', 'www.baidu.com')
-    print(dic)
+with open("./config/config_websites2.json", "wt+", encoding='utf-8') as f:
+    json.dump(dic, f, ensure_ascii=False, indent=4)

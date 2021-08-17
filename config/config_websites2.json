@@ -1,0 +1,29 @@
+{
+    "length": 5,
+    "kinds": [
+        {
+            "type": "武大",
+            "id": "WHU",
+            "sites": [
+                {
+                    "name": "信息门户",
+                    "Url": "https://ehall.whu.edu.cn/new/index.html"
+                },
+                {
+                    "name": "老教务系统",
+                    "Url": "http://bkjw.whu.edu.cn/"
+                }
+            ]
+        },
+        {
+            "type": "武大2",
+            "id": "WHU2",
+            "sites": [
+                {
+                    "name": "瞎写的",
+                    "Url": "www.baidu.com"
+                }
+            ]
+        }
+    ]
+}
