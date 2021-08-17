@@ -11,11 +11,6 @@
 			"queryUrl": "https://www.baidu.com/s?wd={}"
 		},
 		{
-			"name": "搜狗",
-			"id": "sogou",
-			"queryUrl": "https://www.sogou.com/web?query={}"
-		},
-		{
 			"name": "必应",
 			"id": "biying",
 			"queryUrl": "https://cn.bing.com/search?q={}"
@@ -29,6 +24,21 @@
 			"name": "B站",
 			"id": "bzhan",
 			"queryUrl": "https://search.bilibili.com/all?keyword={}"
+		},
+		{
+			"name": "百度学术",
+			"id": "baidu-academic",
+			"queryUrl": "https://xueshu.baidu.com/s?wd={}"
+		},
+		{
+			"name": "必应学术",
+			"id": "bing-academic",
+			"queryUrl": "https://www.bing.com/academic/search?q={}"
+		},
+		{
+			"name": "谷歌学术",
+			"id": "google-academic",
+			"queryUrl": "https://scholar.google.com.sg/scholar?q={}"
 		}
 	]
 }
