@@ -1,13 +1,14 @@
 {
-	"sites": [{
-			"name": "百度",
-			"id": "baidu",
-			"queryUrl": "https://www.baidu.com/s?wd={}"
-		},
+	"sites": [
 		{
 			"name": "谷歌",
 			"id": "google",
 			"queryUrl": "http://www.google.com/search?q={}"
+		},
+		{
+			"name": "百度",
+			"id": "baidu",
+			"queryUrl": "https://www.baidu.com/s?wd={}"
 		},
 		{
 			"name": "搜狗",
@@ -18,12 +19,12 @@
 			"name": "必应",
 			"id": "biying",
 			"queryUrl": "https://cn.bing.com/search?q={}"
-		},	
+		},
 		{
 			"name": "知乎",
 			"id": "zhihu",
 			"queryUrl": "https://www.zhihu.com/search?q={}"
-		},	
+		},
 		{
 			"name": "B站",
 			"id": "bzhan",
