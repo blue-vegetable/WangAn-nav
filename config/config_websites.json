@@ -1,4 +1,83 @@
 {
     "length": 5,
-    "kinds": []
+    "kinds": [
+        {
+            "type": "武大",
+            "id": "WHU",
+            "sites": [
+                {
+                    "name": "信息门户",
+                    "Url": "https://ehall.whu.edu.cn/new/index.html"
+                },
+                {
+                    "name": "老教务系统",
+                    "Url": "http://bkjw.whu.edu.cn/"
+                },
+                {
+                    "name": "新教务系统",
+                    "Url": "https://bkxk.whu.edu.cn/xtgl/login_slogin.html?language=zh_CN"
+                },
+                {
+                    "name": "珞珈在线",
+                    "Url": "http://www.mooc.whu.edu.cn/portal"
+                },
+                {
+                    "name": "武大图书馆",
+                    "Url": "https://www.lib.whu.edu.cn/"
+                }
+            ]
+        },
+        {
+            "type": "邮箱",
+            "id": "e-mails",
+            "sites": [
+                {
+                    "name": "武大邮箱",
+                    "Url": "https://email.whu.edu.cn/"
+                },
+                {
+                    "name": "微软邮箱",
+                    "Url": "https://outlook.live.com/mail"
+                },
+                {
+                    "name": "网易邮箱",
+                    "Url": "https://mail.163.com/"
+                },
+                {
+                    "name": "谷歌邮箱",
+                    "Url": "https://www.google.com/gmail/"
+                },
+                {
+                    "name": "QQ邮箱",
+                    "Url": "https://mail.qq.com/"
+                }
+            ]
+        },
+        {
+            "type": "学习",
+            "id": "study",
+            "sites": [
+                {
+                    "name": "GITHUB",
+                    "Url": "https://github.com/"
+                },
+                {
+                    "name": "LEETCODE",
+                    "Url": "https://leetcode-cn.com/problemset/all/"
+                },
+                {
+                    "name": "bilibili",
+                    "Url": "https://www.bilibili.com/"
+                },
+                {
+                    "name": "中国大学mooc",
+                    "Url": "https://www.icourse163.org/"
+                },
+                {
+                    "name": "coursera",
+                    "Url": "https://www.coursera.org/"
+                }
+            ]
+        }
+    ]
 }
