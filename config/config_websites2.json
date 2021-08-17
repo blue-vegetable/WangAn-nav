@@ -12,16 +12,18 @@
                 {
                     "name": "老教务系统",
                     "Url": "http://bkjw.whu.edu.cn/"
-                }
-            ]
-        },
-        {
-            "type": "武大2",
-            "id": "WHU2",
-            "sites": [
+                },
                 {
-                    "name": "瞎写的",
-                    "Url": "www.baidu.com"
+                    "name": "新教务系统",
+                    "Url": "https://bkxk.whu.edu.cn/xtgl/login_slogin.html?language=zh_CN"
+                },
+                {
+                    "name": "珞珈在线",
+                    "Url": "http://www.mooc.whu.edu.cn/portal"
+                },
+                {
+                    "name": "武大图书馆",
+                    "Url": "https://www.lib.whu.edu.cn/"
                 }
             ]
         }
