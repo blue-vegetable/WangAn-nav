@@ -39,6 +39,11 @@
 			"name": "谷歌学术",
 			"id": "google-academic",
 			"queryUrl": "https://scholar.google.com.sg/scholar?q={}"
+		},
+		{
+			"name": "Github",
+			"id": "github",
+			"queryUrl": "https://github.com/search?q={}"
 		}
 	]
 }
