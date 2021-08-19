@@ -72,6 +72,13 @@
 		})
 		
 	});
+	document.onkeyup = function(){    // 模拟谷歌的按'/'键以后能够聚焦到搜索框
+		var input = document.getElementById('search');
+		if(event.keyCode == 191){
+			input.focus();
+		}
+		
+	}
 	
 	
 </script>
