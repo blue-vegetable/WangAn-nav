@@ -78,6 +78,20 @@
                     "Url": "https://www.coursera.org/"
                 }
             ]
+        },
+        {
+            "type": "工具",
+            "id": "tools",
+            "sites": [
+                {
+                    "name": "歌曲下载",
+                    "Url": "https://www.musicenc.com/"
+                },
+                {
+                    "name": "MP3剪辑",
+                    "Url": "https://mp3cut.net/cn/"
+                }
+            ]
         }
     ]
 }

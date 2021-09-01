@@ -33,12 +33,17 @@ def process_name_url(names, urls):
 #         'https://mail.163.com/',
 #         'https://www.google.com/gmail/', 'https://mail.qq.com/']
 
-type = "学习"
-id = "study"
-names = ['GITHUB', 'LEETCODE', 'bilibili', '中国大学mooc', 'coursera']
-urls = ['https://github.com/', 'https://leetcode-cn.com/problemset/all/',
-        'https://www.bilibili.com/',
-        'https://www.icourse163.org/', 'https://www.coursera.org/']
+# type = "学习"
+# id = "study"
+# names = ['GITHUB', 'LEETCODE', 'bilibili', '中国大学mooc', 'coursera']
+# urls = ['https://github.com/', 'https://leetcode-cn.com/problemset/all/',
+#         'https://www.bilibili.com/',
+#         'https://www.icourse163.org/', 'https://www.coursera.org/']
+
+type = "工具"
+id = "tools"
+names = ['歌曲下载', 'MP3剪辑']
+urls = ['https://www.musicenc.com/', 'https://mp3cut.net/cn/']
 
 with open("./config/config_websites.json", "r", encoding='utf-8') as f:
     dic = json.load(f)
