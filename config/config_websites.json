@@ -92,6 +92,24 @@
                     "Url": "https://mp3cut.net/cn/"
                 }
             ]
+        },
+        {
+            "type": "常用",
+            "id": "usual",
+            "sites": [
+                {
+                    "name": "Dukou",
+                    "Url": "https://dukou.dev/user/index"
+                },
+                {
+                    "name": "Typing-Club",
+                    "Url": "https://www.typingclub.com/"
+                },
+                {
+                    "name": "Age",
+                    "Url": "https://www.agefans.cc/"
+                }
+            ]
         }
     ]
 }
