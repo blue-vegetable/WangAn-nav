@@ -10994,7 +10994,7 @@ header.masthead {
 	position: relative;
 	/* background-color: #343a40;
   background-size: cover; */
-	padding-top: 8rem;
+	padding-top: 6rem;
 	padding-bottom: 2rem;
 }
 
@@ -11014,8 +11014,8 @@ header.masthead h1 {
 
 @media (min-width: 768px) {
 	header.masthead {
-		padding-top: 6rem;
-		padding-bottom: 6rem;
+		padding-top: 2rem;
+		padding-bottom: 2rem;
 	}
 
 	header.masthead h1 {

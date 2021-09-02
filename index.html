@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-		<meta name="description" content="" />
-		<meta name="author" content="" />
-		<title>网安人导航</title>
-		<!-- Favicon-->
-		<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-		<!-- Font Awesome icons (free version)-->
-		<script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
-		<!-- Simple line icons-->
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css" rel="stylesheet"
-		 type="text/css" />
-		<!-- Google fonts-->
-		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet"
-		 type="text/css" />
-		<!-- Core theme CSS (includes Bootstrap)-->
-		<link href="css/styles.css" rel="stylesheet" />
-		</style>
-		<base target="_blank">
-		<script src="./js/jquery.js"></script>
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-	</head>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<title>网安人导航</title>
+	<!-- Favicon-->
+	<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+	<!-- Font Awesome icons (free version)-->
+	<script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+	<!-- Simple line icons-->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"
+		rel="stylesheet" type="text/css" />
+	<!-- Google fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet"
+		type="text/css" />
+	<!-- Core theme CSS (includes Bootstrap)-->
+	<link href="css/styles.css" rel="stylesheet" />
+	</style>
+	<base target="_blank">
+	<script src="./js/jquery.js"></script>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+</head>
 
 
-
-	<script>
-		$.getJSON('./config/config.json', function (configData) {
+<!-- search-btn -->
+<script>
+	$.getJSON('./config/config.json', function (configData) {
 		let sites = configData['sites'];
-	$.each(sites, function (i, site) {
-		$("#search-btns").append(`
+		$.each(sites, function (i, site) {
+			$("#search-btns").append(`
 			  <input
 				type="submit"
 				value="${site.name}"
@@ -43,16 +43,17 @@
 				class="btn btn-${'color' in site ? site.color : 'primary'}"
 			  />
 			`);
-		$("#" + site.id).click(function () {
-			let searchUrl = site.queryUrl.replace("{}", encodeURIComponent($('#search').val()));
-			if (searchUrl) {
-				window.open(searchUrl, "_blank");
-				return false;
-			}
+			$("#" + site.id).click(function () {
+				let searchUrl = site.queryUrl.replace("{}", encodeURIComponent($('#search').val()));
+				if (searchUrl) {
+					window.open(searchUrl, "_blank");
+					return false;
+				}
+			})
 		})
-	})
-});
+	});
 
+	// websites below
 	$.getJSON('./config/config_websites.json', function (configData) {
 		let sites = configData['kinds'];
 		let length = configData['length'];
@@ -78,53 +79,45 @@
 		})
 
 	});
-	function suggest(){
+
+	// suggestion 
+
+	function suggest() {
 		//url = 'https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&sugsid=30962,1467,31125,21116,31341,31217,30823,26350,31164&wd=123&cb=show'
 		let input = document.getElementById('search');
 		$.ajax({
-		     url: 'https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&sugsid=30962,1467,31125,21116,31341,31217,30823,26350,31164&wd='+encodeURIComponent(input.value)+'&cb=add_suggest',
-		     // 如果要使用 $.ajax() 发起 JSONP 请求，必须指定 datatype 为 jsonp
-		     dataType: 'jsonp'
+			url: 'https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&sugsid=30962,1467,31125,21116,31341,31217,30823,26350,31164&wd=' + encodeURIComponent(input.value) + '&cb=add_suggest',
+			// 如果要使用 $.ajax() 发起 JSONP 请求，必须指定 datatype 为 jsonp
+			dataType: 'jsonp'
 		});
-	}	
-	
-	function add_suggest(json){
-		if(!json.g){
+	}
+
+	function add_suggest(json) {
+		if (!json.g) {
 			return 0;
 		}
 		let arr = [];
-		json.g.forEach(item=>{
+		json.g.forEach(item => {
 			arr.push(item.q);
 		})
-		$("#search").autocomplete({source: arr});
-		
-		// var parentDatalist = document.getElementById('category');
-		// while(parentDatalist.hasChildNodes()) { 
-		// 	parentDatalist.removeChild(parentDatalist.firstChild); 
-		// } 
-		// json.g.forEach(item=> {
-		// 	$("#category").append(`
-		// 		<option>${item.q}</option>
-		// 	`);
-		// })
-		
+		$("#search").autocomplete({ source: arr });
 	}
-	
-	
+
+
 	document.onkeyup = function () {    // 模拟谷歌的按'/'键以后能够聚焦到搜索框
 		var input = document.getElementById('search');
 		if (event.keyCode == 191) {
 			input.focus();
 		}
 	}
-	
+
 </script>
 
-	<body>
-		<!-- a weather plugin-->
-		<div id="he-plugin-simple"></div>
-		<script>
-			WIDGET = {
+<body>
+	<!-- a weather plugin-->
+	<div id="he-plugin-simple"></div>
+	<script>
+		WIDGET = {
 			"CONFIG": {
 				"modules": "01234",
 				"background": "5",
@@ -147,89 +140,84 @@
 			}
 		}
 	</script>
-		<script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script>
-		<!-- Navigation-->
-		<!-- <nav class="navbar navbar-light bg-light static-top">
+	<script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script>
+
+	<!-- <header class="masthead text-white text-center"> -->
+	<header class="masthead text-white text-center">
 		<div class="container">
-			<a class="navbar-brand" href="#!">Start Bootstrap</a>
-			<a class="btn btn-primary" href="#!">Sign In</a>
-		</div>
-	</nav> -->
-		<!-- Masthead-->
+			<div class="row">
 
+				<div class="col-xl-9 mx-auto">
+					<h1 class="mb-5">网安人导航</h1>
+				</div>
 
-
-		<header class="masthead text-white text-center">
-			<div class="overlay"></div>
-			<div class="container">
-				<div class="row">
-					<div class="col-xl-9 mx-auto">
-						<h1 class="mb-5">网安人导航</h1>
-					</div>
-					<div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-						<form>
-							<div class="form-row">
-								<div class="col-12 col-md-12 mb-2 mb-md-0">
-									<input id="search" oninput="suggest()" onpropertychange="suggest()" list="category" class="form-control form-control-lg"
-									 type="text" placeholder="输入你想知道的 (默认回车为谷歌搜索) " />
-									<!-- <datalist id="category"  style=" webkit-appearance:none;">
+				<div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+					<form>
+						<div class="form-row">
+							<div class="col-12 col-md-12 mb-2 mb-md-0">
+								<input id="search" oninput="suggest()" onpropertychange="suggest()" list="category"
+									class="form-control form-control-lg" type="text"
+									placeholder="输入你想知道的 (默认回车为谷歌搜索) " />
+								<!-- <datalist id="category"  style=" webkit-appearance:none;">
 									</datalist> -->
-								</div>
-								<center id="search-btns" class="col-12 col-md-12">
-								</center>
 							</div>
-						</form>
-					</div>
+							<center id="search-btns" class="col-12 col-md-12">
+							</center>
+						</div>
+					</form>
 				</div>
 			</div>
-		</header>
+		</div>
+	</header>
 
-		<!-- 快捷进入 -->
+	<!-- 快捷进入 -->
+	<div class="container">
+		<table class="table text-white">
+			<tbody id="websites">
+
+			</tbody>
+		</table>
+	</div>
+
+	<!-- Footer-->
+	<footer class="footer bg-light">
 		<div class="container">
-			<table class="table text-white">
-				<tbody id="websites">
-
-				</tbody>
-			</table>
+			<div class="row">
+				<div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+					<ul class="list-inline mb-2">
+						<li class="list-inline-item">⋅</li>
+						<li class="list-inline-item"><a href="https://wry2431.top">关于我</a></li>
+						<li class="list-inline-item">⋅</li>
+						<li class="list-inline-item"><a href="mailto:2431340038@qq.com">联系我</a></li>
+						<li class="list-inline-item">⋅</li>
+					</ul>
+					<p class="text-muted small mb-4 mb-lg-0">页面参照北邮人导航制作(byr.wiki)</p>
+				</div>
+				<div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+					<ul class="list-inline mb-0">
+						<li class="list-inline-item mr-3">
+							<a href="http://wpa.qq.com/msgrd?v=3&uin=2431340038&site=qq&menu=yes"><i
+									class="fab fa-qq fa-2x fa-fw"></i></a>
+						</li>
+						<li class="list-inline-item mr-3">
+							<a
+								href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=2431340038&website=www.oicqzone.com"><i
+									class="fab fa-qq fa-2x fa-fw"></i></a>
+						</li>
+						<li class="list-inline-item">
+							<a href="https://github.com/blue-vegetable"><i class="fab fa-github fa-2x fa-fw"></i></a>
+						</li>
+					</ul>
+				</div>
+			</div>
 		</div>
 
-		<!-- Footer-->
-		<footer class="footer bg-light">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6 h-100 text-center text-lg-left my-auto">
-						<ul class="list-inline mb-2">
-							<li class="list-inline-item">⋅</li>
-							<li class="list-inline-item"><a href="https://wry2431.top">关于我</a></li>
-							<li class="list-inline-item">⋅</li>
-							<li class="list-inline-item"><a href="mailto:2431340038@qq.com">联系我</a></li>
-							<li class="list-inline-item">⋅</li>
-						</ul>
-						<p class="text-muted small mb-4 mb-lg-0">页面参照北邮人导航制作(byr.wiki)</p>
-					</div>
-					<div class="col-lg-6 h-100 text-center text-lg-right my-auto">
-						<ul class="list-inline mb-0">
-							<li class="list-inline-item mr-3">
-								<a href="http://wpa.qq.com/msgrd?v=3&uin=2431340038&site=qq&menu=yes"><i class="fab fa-qq fa-2x fa-fw"></i></a>
-							</li>
-							<li class="list-inline-item mr-3">
-								<a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=2431340038&website=www.oicqzone.com"><i
-									 class="fab fa-qq fa-2x fa-fw"></i></a>
-							</li>
-							<li class="list-inline-item">
-								<a href="https://github.com/blue-vegetable"><i class="fab fa-github fa-2x fa-fw"></i></a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
 
-
-		</footer>
-		<!-- Bootstrap core JS-->
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-		<!-- Core theme JS-->
-		<script src="js/scripts.js"></script>
-	</body>
+	</footer>
+	<!-- Bootstrap core JS-->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- Core theme JS-->
+	<script src="js/scripts.js"></script>
+</body>
 
 </html>

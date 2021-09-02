@@ -90,6 +90,10 @@
                 {
                     "name": "MP3剪辑",
                     "Url": "https://mp3cut.net/cn/"
+                },
+                {
+                    "name": "CTF-tools",
+                    "Url": "http://ctf.ssleye.com/"
                 }
             ]
         },

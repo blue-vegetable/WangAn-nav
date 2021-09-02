@@ -41,17 +41,23 @@ def process_name_url(names, urls):
 #         'https://www.icourse163.org/', 'https://www.coursera.org/']
 
 
-type = "常用"
-id = "usual"
-names = ['Dukou','Typing-Club','Age']
-urls = ['https://dukou.dev/user/index', 'https://www.typingclub.com/',
-         'https://www.agefans.cc/']
+# type = "常用"
+# id = "usual"
+# names = ['Dukou','Typing-Club','Age']
+# urls = ['https://dukou.dev/user/index', 'https://www.typingclub.com/',
+#          'https://www.agefans.cc/']
 
 
 # type = "工具"
 # id = "tools"
 # names = ['歌曲下载', 'MP3剪辑']
 # urls = ['https://www.musicenc.com/', 'https://mp3cut.net/cn/']
+
+type = "工具"
+id = "tools"
+names = ['CTF-tools']
+urls = ['http://ctf.ssleye.com/']
+
 
 with open("./config/config_websites.json", "r", encoding='utf-8') as f:
     dic = json.load(f)
