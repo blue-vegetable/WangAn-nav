@@ -94,6 +94,10 @@
                 {
                     "name": "CTF-tools",
                     "Url": "http://ctf.ssleye.com/"
+                },
+                {
+                    "name": "阿虚同学",
+                    "Url": "https://axutongxue.com/"
                 }
             ]
         },
@@ -112,7 +116,11 @@
                 {
                     "name": "Age",
                     "Url": "https://www.agefans.cc/"
-                }
+                },
+				{
+					"name":"Music",
+					"Url": "http://music.xiongsihao.com/"
+				}
             ]
         }
     ]
