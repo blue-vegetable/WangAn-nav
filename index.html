@@ -80,6 +80,51 @@
 
 	});
 
+	$.getJSON('./config/my_class.json', function (configData) {
+		let classes = configData["kbList"];
+		// console.log(classes);
+		var date1 = new Date(2021, 09, 06);
+		var now = new Date();
+		var now_day = now.getDay();
+		console.log(now.getHours());
+		if (now.getHours() >= 21) {
+			$("#classSchedule").append(`
+					<p class="classes"> 明天的课 </p>
+				`);
+			now_day += 1;
+		}
+		var days = Math.floor((now - date1) / 24 * 3600 * 1000);
+		var week = (days + 7) / 7;
+		$.each(classes, function (i, data) {
+			var day = data.xqj;
+			var zcd = data.zcd;
+			// compareWeeks(zcd, week);
+			if (day == now_day) {
+				$("#classSchedule").append(`
+				<p class="classes">课程 : ${data.kcmc}<br>
+				老师 : ${data.xm} <br>
+				时间 : ${data.jc}<br>
+				周数 : ${data.zcd}<br>
+				地点 : ${data.cdmc}<br></p>
+			`);
+			}
+		})
+	})
+
+	function compareWeeks(zcd, week) {
+		if (zcd[1] == '-') {
+			var from = zcd[0];
+			var to = zcd[2] + zcd[3];
+		} else {
+			var from = zcd[0] + zcd[1];
+			var to = zcd[3] + zcd[4];
+		}
+		if (week >= from && week <= to) {
+			return 1;
+		}
+		return 0;
+	}
+
 	// suggestion 
 
 	function suggest() {
@@ -111,42 +156,14 @@
 		}
 	}
 
+
 </script>
 
 <body>
-	<!-- a weather plugin-->
-	<div id="he-plugin-simple"></div>
-	<script>
-		WIDGET = {
-			"CONFIG": {
-				"modules": "01234",
-				"background": "5",
-				"tmpColor": "FFFFFF",
-				"tmpSize": "16",
-				"cityColor": "FFFFFF",
-				"citySize": "16",
-				"aqiColor": "FFFFFF",
-				"aqiSize": "16",
-				"weatherIconSize": "24",
-				"alertIconSize": "18",
-				"padding": "10px 10px 10px 10px",
-				"shadow": "0",
-				"language": "auto",
-				"fixed": "false",
-				"vertical": "top",
-				"horizontal": "left",
-				"city": "CN101240312",
-				"key": "df37c4c27136462aa49cf7e45d24a1fd"
-			}
-		}
-	</script>
-	<script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script>
-
 	<!-- <header class="masthead text-white text-center"> -->
 	<header class="masthead text-white text-center">
 		<div class="container">
 			<div class="row">
-
 				<div class="col-xl-9 mx-auto">
 					<h1 class="mb-5">网安人导航</h1>
 				</div>
@@ -169,6 +186,10 @@
 			</div>
 		</div>
 	</header>
+
+	<!-- 课程表 -->
+	<div id="classSchedule" class="classSchedule">
+	</div>
 
 	<!-- 快捷进入 -->
 	<div class="container">
