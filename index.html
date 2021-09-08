@@ -83,26 +83,28 @@
 	$.getJSON('./config/my_class.json', function (configData) {
 		let classes = configData["kbList"];
 		// console.log(classes);
-		var date1 = new Date(2021, 09, 06);
+		var date1 = new Date(2021,8,6);
 		var now = new Date();
+		console.log(date1);
+		console.log(now);
 		var now_day = now.getDay();
-		console.log(now.getHours());
 		if (now.getHours() >= 21) {
 			$("#classSchedule").append(`
 					<p class="classes"> 明天的课 </p>
 				`);
 			now_day += 1;
 		}
-		var days = Math.floor((now - date1) / 24 * 3600 * 1000);
+		
+		var days = Math.floor((now - date1) / (24 * 3600 * 1000));
+		console.log(days);
 		var week = (days + 7) / 7;
 		$.each(classes, function (i, data) {
 			var day = data.xqj;
 			var zcd = data.zcd;
 			// compareWeeks(zcd, week);
-			if (day == now_day) {
+			if (day == now_day && compareWeeks(zcd,week)) {
 				$("#classSchedule").append(`
 				<p class="classes">课程 : ${data.kcmc}<br>
-				老师 : ${data.xm} <br>
 				时间 : ${data.jc}<br>
 				周数 : ${data.zcd}<br>
 				地点 : ${data.cdmc}<br></p>
@@ -112,19 +114,15 @@
 	})
 
 	function compareWeeks(zcd, week) {
-		if (zcd[1] == '-') {
-			var from = zcd[0];
-			var to = zcd[2] + zcd[3];
-		} else {
-			var from = zcd[0] + zcd[1];
-			var to = zcd[3] + zcd[4];
-		}
-		if (week >= from && week <= to) {
+		var array = zcd.match(/\d+/g);
+		console.log(week);
+		if(week>=array[0] && week<=array[1]){
 			return 1;
+		} else {
+			return 0;
 		}
-		return 0;
 	}
-
+	
 	// suggestion 
 
 	function suggest() {
