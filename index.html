@@ -85,8 +85,6 @@
 		// console.log(classes);
 		var date1 = new Date(2021,8,6);
 		var now = new Date();
-		console.log(date1);
-		console.log(now);
 		var now_day = now.getDay();
 		if (now.getHours() >= 21) {
 			$("#classSchedule").append(`
@@ -96,7 +94,6 @@
 		}
 		
 		var days = Math.floor((now - date1) / (24 * 3600 * 1000));
-		console.log(days);
 		var week = (days + 7) / 7;
 		$.each(classes, function (i, data) {
 			var day = data.xqj;
@@ -104,9 +101,9 @@
 			// compareWeeks(zcd, week);
 			if (day == now_day && compareWeeks(zcd,week)) {
 				$("#classSchedule").append(`
-				<p class="classes">课程 : ${data.kcmc}<br>
+				<p class="classes">
+				课程 : ${data.kcmc}<br>
 				时间 : ${data.jc}<br>
-				周数 : ${data.zcd}<br>
 				地点 : ${data.cdmc}<br></p>
 			`);
 			}
