@@ -102,9 +102,9 @@
 			if (day == now_day && compareWeeks(zcd,week)) {
 				$("#classSchedule").append(`
 				<p class="classes">
-				课程 : ${data.kcmc}<br>
-				时间 : ${data.jc}<br>
-				地点 : ${data.cdmc}<br></p>
+				${data.kcmc}<br>
+				${data.jc}<br>
+				${data.cdmc}<br></p>
 			`);
 			}
 		})
