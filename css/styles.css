@@ -11072,8 +11072,8 @@ header.masthead h1 {
 }
 
 footer.footer {
-	position: fixed;
-	bottom: 0px;
+	position: sticky;
+	bottom:0px;
 	width:100%;
 }
 
