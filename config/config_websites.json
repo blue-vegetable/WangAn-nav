@@ -98,7 +98,12 @@
                 {
                     "name": "阿虚同学",
                     "Url": "https://axutongxue.com/"
-                }
+                },
+				{
+					"name":"CyberChef",
+					"Url":"https://gchq.github.io/CyberChef"
+				}
+
             ]
         },
         {
